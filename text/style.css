@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Style+Script&display=swap");
+
+:root {
+    --bg: #dde;
+    --color: #03a9f4;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+}
+
+body, main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg);
+}
+
+main {
+    flex-direction: column;
+}
+
+.water {
+    position: relative;
+    margin-left: -200px;
+}
+
+.water span {
+    position: absolute;
+    font-size: 8em;
+}
+
+.water span:first-child {
+    color: transparent;
+    -webkit-text-stroke: 2px var(--color);
+}
+
+.water span:last-child {
+    color: var(--color);
+    animation: flow 4s linear infinite;
+}
+
+.wavy {
+    margin-top: 200px;
+    -webkit-text-reflect: below -10px linear-gradient(transparent, rgba(0,0,0,0.2));
+}
+
+.wavy span {
+    font-size: 2em;
+    position: relative;
+    display: inline-block;
+    animation: wave 1.5s ease-in-out infinite;
+    animation-delay: calc(var(--i) * 0.1s);
+}
+
+
+
+.fill-stroke {
+    margin-top: 200px;
+}
+
+.fill-stroke span {
+    position: relative;
+    font-family: "Poppins", Sans-Serif;
+    font-size: 3em;
+    color: var(--bg);
+    -webkit-text-stroke: 2px black;
+}
+
+
+.fill-stroke span:before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--color);
+  width: 0%;
+  height: 100%;
+  border-left: 1px solid green;
+  -webkit-text-stroke: 2px transparent;
+  animation: animateWidth 4s linear infinite;
+  overflow: hidden;
+}
+
+@keyframes flow {
+    0% {
+        clip-path: polygon(2% 62%, 16% 68%, 34% 72%, 50% 65%, 61% 59%, 76% 54%, 88% 47%, 99% 44%, 100% 99%, 1% 100%);
+    }
+    50% {
+        clip-path: polygon(0% 50%, 15% 55%, 31% 64%, 48% 70%, 68% 73%, 78% 65%, 92% 55%, 100% 48%, 100% 98%, 0% 98%);
+    }
+    100% {
+        clip-path: polygon(2% 62%, 16% 68%, 34% 72%, 50% 65%, 61% 59%, 76% 54%, 88% 47%, 99% 44%, 100% 99%, 1% 100%);
+    }
+}
+
+@keyframes wave {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(15px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes animateWidth {
+    0% {
+        width: 0%;
+    }
+    50% {
+        width: 100%;
+    }
+    100% {
+        width: 0%;
+    }
+}

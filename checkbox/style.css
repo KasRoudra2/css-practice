@@ -1,0 +1,63 @@
+:root {
+    --color: #2196f3;
+    --checked-color: #dde;
+    --checked-bg: #35ab15;
+    --bg: #041821;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, main {
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+}
+
+main {
+    flex-direction: column;
+}
+
+.simple {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.simple input {
+    appearance: none;
+    position: relative;
+    width: 80px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    background-color: var(--bg);
+}
+
+.simple input:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: auto;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: var(--color);
+    transition: 1s;
+}
+
+.simple input:checked {
+    background-color: var(--checked-bg);
+}
+
+.simple input:checked:before {
+    left: auto;
+    right: 0;
+    background-color: var(--checked-color);
+}

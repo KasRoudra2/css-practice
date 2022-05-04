@@ -1,0 +1,504 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Style+Script&display=swap");
+
+:root {
+  --color: #ffffff;
+  --hover: #3bfc0a;
+  --icon-color: #222222;
+  --text-color: #111111;
+  --bg-color: #333333;
+  --menu-bg: #ffffff;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+}
+
+body,
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-color);
+}
+main {
+  flex-direction: column;
+  gap: 20px;
+}
+
+.profile-menu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 120px;
+  height: 60px;
+  border-radius: 3px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  background-color: var(--menu-bg);
+  box-shadow: 0 25px 35px rgba(255, 255, 255, 0.1);
+  transition: height 0.5s, width 0.5s;
+  transition-delay: 0s, 0.75s;
+  overflow: hidden;
+}
+
+.profile-menu .profile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  transition: 0.5s;
+  transition-delay: 0.5s;
+}
+
+.profile-menu .profile .avatar {
+  position: relative;
+  min-width: 60px;
+  min-height: 60px;
+  border-radius: 50%;
+  border: 10px solid var(--menu-bg);
+  overflow: hidden;
+}
+
+.profile-menu .profile .avatar img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-menu .profile .username {
+  white-space: nowrap;
+}
+.profile-menu .toggle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.profile-menu .toggle:before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: 12px;
+  width: 35px;
+  height: 2px;
+  background-color: var(--icon-color);
+  box-shadow: 0 10px var(--icon-color);
+  transition: 1s;
+}
+
+.profile-menu .toggle:after {
+  content: "";
+  position: absolute;
+  top: 38px;
+  left: 12px;
+  width: 35px;
+  height: 2px;
+  background-color: var(--icon-color);
+  transition: 1s;
+}
+
+.profile-menu .menu {
+  position: absolute;
+  top: 0px;
+  height: calc(100% - 60px);
+  width: 100%;
+  padding: 10px 30px;
+  display: none;
+  flex-direction: column;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  list-style: none;
+  transition: 1s;
+  transition-delay: 0.5s;
+}
+
+.profile-menu .menu li a{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+  text-decoration: none;
+  color: var(--text-color);
+  font-family: "Poppins", sans-serif;
+}
+
+.profile-menu .menu li a span:nth-child(1) {
+  font-size: 1.5em;
+}
+.profile-menu .menu li a span:nth-child(2) {
+  font-size: 1em;
+  transform: translateY(-3px);
+}
+
+.profile-menu.active {
+  width: 300px;
+  height: 380px;
+  transition: width 0.5s, height 0.5s;
+  transition-delay: 0s, 0.75s;
+}
+
+.profile-menu.active .profile {
+  width: calc(100% - 60px);
+  transition-delay: 0s;
+}
+
+.profile-menu.active .profile .avatar {
+  width: 50px;
+  height: 50px;;
+}
+
+.profile-menu.active .toggle {
+  background-color: var(--menu-bg);
+}
+
+.profile-menu.active .toggle:before {
+  top: 25px;
+  box-shadow: 0 10px var(--menu-bg);
+  transform: rotate(45deg);
+}
+
+.profile-menu.active .toggle:after {
+  top: 25px;
+  transform: rotate(-45deg);
+}
+
+.profile-menu.active .menu {
+  display: flex;
+  top: 60px;
+}
+
+.profile-menu.active .menu li a:hover {
+  color: var(--hover);
+}
+
+.radial-menu {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin-top: 300px;
+  margin-bottom:100px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.5s;
+}
+
+
+.radial-menu .toggle {
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  font-size: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--icon-color);
+  background-color: var(--menu-bg);
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.radial-menu li {
+  position: absolute;
+  left: 10px;
+  transform-origin: 140px;
+  transform: rotate(calc(360deg / 8 * var(--i))) translateX(40px);
+  visibility: hidden;
+  opacity: 0;
+  list-style: none;
+  transition: 0.5s;
+  z-index: 10;
+}
+
+.radial-menu li.active {
+  transform: rotate(calc(360deg / 8 * var(--i))) translateX(10px);
+}
+
+.radial-menu li a {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--icon-color);
+  font-size: 1.75em;
+  transform: rotate(calc(360deg / -8 * var(--i)));
+  z-index: 10;
+}
+
+.radial-menu .indicator {
+  position: absolute;
+  left: calc(50% + 2.5px);
+  width: 100px;
+  height: 1px;
+  transform-origin: right;
+  background-color: transparent;
+  transition: 1s;
+}
+
+.radial-menu .indicator:before {
+  content: "";
+  position: absolute;
+  top: calc(55px / -2);
+  left: calc(55px / 3 * 2);
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background-color: var(--hover);
+  box-shadow: 0 0 20px var(--hover), 0 0 40px var(--hover), 0 0 60px var(--hover);
+  box-shadow: 0 0 0 6px var(--bg-color);
+  visibility: hidden;
+  opacity: 0;
+}
+
+
+.radial-menu li:nth-child(2).active ~ .indicator {
+  transform: translateX(-103px) rotate(0deg);
+}
+.radial-menu li:nth-child(3).active ~ .indicator {
+  transform: translateX(-103px) rotate(45deg);
+}
+.radial-menu li:nth-child(4).active ~ .indicator {
+  transform: translateX(-103px) rotate(90deg);
+}
+.radial-menu li:nth-child(5).active ~ .indicator {
+  transform: translateX(-103px) rotate(135deg);
+}
+.radial-menu li:nth-child(6).active ~ .indicator {
+  transform: translateX(-103px) rotate(180deg);
+}
+.radial-menu li:nth-child(7).active ~ .indicator {
+  transform: translateX(-103px) rotate(225deg);
+}
+.radial-menu li:nth-child(8).active ~ .indicator {
+  transform: translateX(-103px) rotate(270deg);
+}
+.radial-menu li:nth-child(9).active ~ .indicator {
+  transform: translateX(-103px) rotate(315deg);
+}
+
+
+.radial-menu li a:hover {
+    background-color: var(--hover);
+}
+
+.radial-menu.active .toggle {
+  color: var(--menu-bg);
+  background-color: var(--icon-color);
+  box-shadow: 0 0 0 60px var(--menu-bg), 0 0 0 68px var(--menu-bg);
+  transform: rotate(315deg);
+}
+
+.radial-menu.active li {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: calc(var(--i) * 0.1s);
+}
+
+.radial-menu.active .indicator:before {
+  left: calc(55px / -2 - 2.5px);
+  visibility: visible;
+  opacity: 1;
+}
+
+.magic-menu {
+  position: relative;
+  width: 500px;
+  height: 100px;
+  border-radius: 10px;
+  background-color: var(--menu-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.magic-menu li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 10px;
+  cursor: pointer;
+  transition: 1s;
+  z-index: 10;
+}
+.magic-menu li a {
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--color);
+}
+
+.magic-menu li a .icon {
+  transition: 1s;
+  font-size: 1.5em;
+  transform: translateY(15px);
+  color: var(--icon-color);
+}
+
+.magic-menu li a .text {
+  transition: 1s;
+  visibility: hidden;
+  font-family: "Poppins", sans-serif;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.magic-menu .indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+}
+
+.magic-menu .indicator:before {
+  content: "";
+  position: absolute;
+  top: -23.5px;
+  left: 13.5px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 6px var(--bg-color);
+  background-color: var(--hover);
+  transition: 1s;
+  opacity: 0;
+  z-index: 9;
+}
+
+.magic-menu li:hover {
+  background-color: var(--hover);
+}
+
+.magic-menu li.active {
+  transform: translateX(-1px) translateY(-51px);
+  background-color: var(--hover);
+}
+
+.magic-menu li.active a .text {
+  visibility: visible;
+  opacity: 1;
+  color: var(--bg-color);
+  transition: 1s;
+}
+
+.magic-menu li.active ~ .indicator:before {
+  opacity: 1;
+}
+
+.magic-menu li:nth-child(2).active ~ .indicator:before {
+  transform: translateX(70px);
+}
+
+.magic-menu li:nth-child(3).active ~ .indicator:before {
+  transform: translateX(140px);
+}
+
+.magic-menu li:nth-child(4).active ~ .indicator:before {
+  transform: translateX(210px);
+}
+
+.magic-menu li:nth-child(5).active ~ .indicator:before {
+  transform: translateX(280px);
+}
+.magic-menu li:nth-child(6).active ~ .indicator:before {
+  transform: translateX(350px);
+}
+.magic-menu li:nth-child(7).active ~ .indicator:before {
+  transform: translateX(420px);
+}
+
+.nine-dot-menu {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 1s;
+  transition-delay: 0.8s;
+}
+
+.nine-dot-menu .toggle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+  background-color: var(--menu-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 1s;
+  transition-delay: 0.8s;
+}
+
+.nine-dot-menu .toggle span {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--icon-color);
+  transform: translate(calc(12px * var(--x)), calc(12px * var(--y)));
+  font-size: 1.5em;
+  transition: 1s;
+  transition-delay: calc(0.1s * var(--i));
+}
+
+.nine-dot-menu .toggle span ion-icon {
+  font-size: 0em;
+}
+
+.nine-dot-menu .toggle.active {
+  width: 200px;
+  height: 200px;
+  transition-delay: 0s;
+}
+.nine-dot-menu .toggle.active span {
+  width: 45px;
+  height: 45px;
+  background: transparent;
+  color: var(--icon-color);
+  filter: drop-shadow(0 0 2px var(--icon-color)),
+    drop-shadow(0 0 5px var(--icon-color)),
+    drop-shadow(0 0 15px var(--icon-color));
+  transform: translate(calc(60px * var(--x)), calc(60px * var(--y)));
+}
+
+.nine-dot-menu .toggle.active span:hover {
+  background-color: var(--hover);
+}
+
+.nine-dot-menu .toggle.active span ion-icon {
+  font-size: 1.2em;
+}

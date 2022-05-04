@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navigation Bar</title>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main>
+      <div class="profile-menu">
+        <div class="profile">
+            <div class="avatar">
+                <img src="man.jpg" />
+            </div>
+            <p class="username">John Doe</p>
+        </div>
+        <div class="toggle"></div>
+        <ul class="menu">
+          <li>
+            <a href="#">
+              <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+              <span class="text">Profile</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon"><ion-icon name="chatbox-outline"></ion-icon></span>
+              <span class="text">Inbox</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon"><ion-icon name="notifications-outline"></ion-icon></span>
+              <span class="text">Notifications</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+              <span class="text">Settings</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon"><ion-icon name="help-outline"></ion-icon></span>
+              <span class="text">Support</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+              <span class="text">Logout</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <ul class="radial-menu">
+        <div class="toggle">
+          <ion-icon name="add-outline"></ion-icon>
+        </div>
+        <li style="--i: 0" class="active">
+          <a href="#"><ion-icon name="home-outline"></ion-icon></a>
+        </li>
+        <li style="--i: 1">
+          <a href="#"><ion-icon name="person-outline"></ion-icon></a>
+        </li>
+        <li style="--i: 2">
+          <a href="#"><ion-icon name="settings-outline"></ion-icon></a>
+        </li>
+        <li style="--i: 3">
+          <a href="#"><ion-icon name="mail-outline"></ion-icon></a>
+        </li>
+        <li style="--i: 4">
+          <a href="#"><ion-icon name="videocam-outline"></ion-icon></a>
+        </li>
+        <li style="--i: 5">
+          <a href="#"><ion-icon name="key-outline"></ion-icon></a>
+        </li>
+        <li style="--i: 6">
+          <a href="#"><ion-icon name="game-controller-outline"></ion-icon></a>
+        </li>
+        <li style="--i: 7">
+          <a href="#"><ion-icon name="camera-outline"></ion-icon></a>
+        </li>
+        <div class="indicator"></div>
+      </ul>
+      <ul class="magic-menu">
+        <li>
+          <a href="#">
+            <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+            <span class="text">Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"
+              ><ion-icon name="person-outline"></ion-icon
+            ></span>
+            <span class="text">Profile</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"
+              ><ion-icon name="settings-outline"></ion-icon
+            ></span>
+            <span class="text">Settings</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+            <span class="text">Email</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"
+              ><ion-icon name="videocam-outline"></ion-icon
+            ></span>
+            <span class="text">Video</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"><ion-icon name="key-outline"></ion-icon></span>
+            <span class="text">Login</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"
+              ><ion-icon name="game-controller-outline"></ion-icon
+            ></span>
+            <span class="text">Games</span>
+          </a>
+        </li>
+        <div class="indicator"></div>
+      </ul>
+      <div class="nine-dot-menu">
+        <div class="toggle">
+          <span style="--i: 0; --x: -1; --y: 0;"><ion-icon name="home-outline"></ion-icon></span>
+          <span style="--i: 1; --x: 1; --y: 0;"><ion-icon name="person-outline"></ion-icon></span>
+          <span style="--i: 2; --x: 0; --y: -1;"><ion-icon name="settings-outline"></ion-icon></span>
+          <span style="--i: 3; --x: 0; --y: 1;"><ion-icon name="mail-outline"></ion-icon></span>
+          <span style="--i: 4; --x: 1; --y: 1;"><ion-icon name="videocam-outline"></ion-icon></span>
+          <span style="--i: 5; --x: -1; --y: -1;"><ion-icon name="key-outline"></ion-icon></span>
+          <span style="--i: 6; --x: 0; --y: 0;"
+            ><ion-icon name="apps-outline"></ion-icon
+          ></span>
+          <span style="--i: 7; --x: -1; --y: 1;"
+            ><ion-icon name="moon-outline"></ion-icon
+          ></span>
+          <span style="--i: 8; --x: 1; --y: -1;"
+            ><ion-icon name="wifi-outline"></ion-icon
+          ></span>
+        </div>
+      </div>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>

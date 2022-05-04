@@ -1,0 +1,84 @@
+:root {
+    --dot: #00ff0a;
+    --bg: #042104;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, main, .infinite {
+    display: flex;
+    justify-content: center;
+    background-color: var(--bg);
+}
+
+main {
+    flex-direction: column;
+}
+.infinite {
+    margin-top: 50px;
+}
+.infinite .circle {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 -7.5;
+    animation: animateColor 8s linear infinite;
+}
+
+.infinite span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(calc(18deg * var(--i)));
+}
+
+.infinite span:after {
+    content: "";
+    position: absolute;
+    top: calc(50% - 7.5px);
+    right: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: var(--dot);
+    box-shadow: 0 0 10px var(--dot),
+    0 0 20px var(--dot),
+    0 0 40px var(--dot),
+    0 0 60px var(--dot),
+    0 0 80px var(--dot),
+    0 0 100px var(--dot);
+    transform: scale(0.2);
+    animation: animate 4s linear infinite;
+    animation-delay: calc(0.1s * var(--i));
+}
+
+.infinite .circle:nth-child(2) {
+    transform: rotate(180deg);
+}
+
+.infinite .circle:nth-child(2) span:after {
+    animation-delay: calc(-0.1s * var(--i));
+}
+
+@keyframes animate {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0.2);
+    }
+}
+
+@keyframes animateColor {
+    0% {
+        filter: hue-rotate(0);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}

@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Style+Script&display=swap");
+
+:root {
+  --neon: #2196f3;
+  --bg: #c2c6ff;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg);
+}
+
+main {
+  min-height: 100vh;
+}
+.container {
+  position: relative;
+  width: 600px;
+  height: 300px;
+  margin: 50px 0;
+  background: #373737;
+}
+
+.stroke-clock {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.stroke-clock .circle {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #2196f3; */
+}
+
+.stroke-clock .circle div:first-child {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  /* transform: rotate(var(--rotate)); */
+}
+
+.stroke-clock .circle div:first-child:before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: calc(50% - 8px);
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: var(--clr);
+  box-shadow: 0 0 20px var(--clr), 0 0 60px var(--clr);
+}
+
+.stroke-clock .circle svg {
+  width: 150px;
+  height: 150px;
+  transform: rotate(270deg);
+}
+
+.stroke-clock .circle svg circle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  fill: transparent;
+  transform: translate(5px, 5px);
+  stroke: #b6b6b6;
+  stroke-width: 4;
+}
+
+.stroke-clock .circle svg circle:nth-child(2) {
+  stroke: var(--clr);
+  stroke-dasharray: 440;
+}
+
+
+.stroke-clock .circle div {
+  position: absolute;
+  color: #ffffff;
+  font-size: 1.5em;
+  font-family: "Poppins", sans-serif;
+}
+
+.stroke-clock .circle div span {
+    position: absolute;
+    top: 33px;
+    left: -20px;
+    font-size: 0.8em;
+}
+
+.stroke-clock .ap {
+  color: #ffffff;
+}

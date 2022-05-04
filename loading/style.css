@@ -1,0 +1,102 @@
+:root {
+  --bg: #333;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+main,
+.dashed-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg);
+}
+
+.dashed-loading {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  margin-top: 50px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 25px 25px 75px rgba(0, 0, 0, 0.5),
+    10px 10px 70px rgba(0, 0, 0, 0.5);
+    z-index:10;
+}
+
+.dashed-loading:before {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  right: 0;
+  bottom: 0;
+  border-radius: 0 0 100% 0;
+  background-color: var(--bg);
+  filter: blur(50px) ;
+  animation: rotate2 3s linear infinite;
+  transform-origin: 0 0;
+  z-index: 10;
+}
+
+.dashed-loading:after {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  right: 0;
+  bottom: 0;
+  border-radius: 0 0 100% 0;
+  background-color: #f32b1d;
+  animation: rotate 3s linear infinite;
+  filter: blur(30px) drop-shadow(50px 50px 50px #f32b1d);
+  transform-origin: 0 0;
+  z-index: 1;
+}
+
+.dashed-loading .circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px dashed #666;
+}
+
+.dashed-loading .one {
+  width: 300px;
+  height: 300px;
+  background-color: #222;
+  animation: rotate 8s linear infinite;
+}
+.dashed-loading .two {
+  width: 200px;
+  height: 200px;
+  background-color: #333;
+  animation: rotate 5s linear infinite;
+}
+.dashed-loading .three {
+  width: 100px;
+  height: 100px;
+  background-color: #222;
+  animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate2 {
+  0% {
+    transform: rotate(-45deg);
+  }
+  100% {
+    transform: rotate(315deg);
+  }
+}

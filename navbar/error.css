@@ -1,0 +1,134 @@
+.radial-menu {
+  position: relative;
+  margin-top: 300px;
+  margin-bottom:100px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  transition: 1s;
+}
+
+.radial-menu .toggle {
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  font-size: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color);
+  cursor: pointer;
+  transition: 1s;
+}
+
+.radial-menu li {
+  position: absolute;
+  left: 10px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  transform: rotate(calc(360deg / 8 * var(--i))) translateX(10px);
+  transform-origin: 140px;
+  transition: all 0.5s ease-in-out;
+  transition-delay: calc(var(--i) * 0.1s);
+  visibility: hidden;
+  opacity: 0;
+  z-index: 10;
+}
+
+.radial-menu li a {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(calc(360deg / -8 * var(--i)));
+}
+
+.radial-menu li a:hover {
+  background-color: var(--bg-color);
+  color: #000;
+}
+
+.radial-menu .indicator {
+  position: absolute;
+  left: calc(50% + 1px);
+  transform-origin: right;
+  height: 1px;
+  width: 100px;
+  background-color: var(--color);
+}
+
+.radial-menu .indicator:before {
+  content: "";
+  position: absolute;
+  top: -27.5px;
+  left: 109px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 6px red;
+  background-color: var(--hover);
+  transition: 1s;
+  opacity: 0;
+}
+
+.radial-menu.active {
+  background-color: #fff;
+}
+
+.radial-menu.active .toggle {
+  transform: rotate(315deg);
+  background-color: var(--bg-color);
+}
+
+.radial-menu.active li {
+  visibility: visible;
+  opacity: 1;
+}
+
+.radial-menu.active li.active {
+  background-color: var(--bg-color);
+  transform: rotate(calc(360deg / 8 * var(--i))) translateX(-30px);
+}
+
+.radial-menu.active .indicator:before {
+  top: -27.5px;
+  left: -27.5px;
+  background-color: red;
+  box-shadow: 0 0 0 6px var(--bg);
+  opacity: 1;
+}
+
+.radial-menu li:nth-child(2).active ~ .indicator {
+  transform: translateX(-145px) rotate(0deg);
+}
+.radial-menu li:nth-child(3).active ~ .indicator {
+  transform: translateX(-145px) rotate(45deg);
+}
+.radial-menu li:nth-child(4).active ~ .indicator {
+  transform: translateX(-145px) rotate(90deg);
+}
+.radial-menu li:nth-child(5).active ~ .indicator:before {
+  transform: translateX(-145px) rotate(135deg);
+}
+.radial-menu li:nth-child(6).active ~ .indicator {
+  transform: translateX(-145px) rotate(180deg);
+}
+.radial-menu li:nth-child(7).active ~ .indicator {
+  transform: translateX(-145px) rotate(225deg);
+}
+.radial-menu li:nth-child(8).active ~ .indicator {
+  transform: translateX(-145px) rotate(270deg);
+}
+.radial-menu li:nth-child(9).active ~ .indicator {
+  transform: translateX(-145px) rotate(315deg);
+}
